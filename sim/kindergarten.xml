@@ -1,0 +1,55 @@
+<!--
+  SEA Kindergarten digital twin (minimal layout).
+  Crib (0.6x0.6 m) at floor level, step up 0.08 m to play pen (1.2x1.2 m), play yard 3x3 m.
+  Units: meter, radian, kg.
+-->
+<mujoco model="kindergarten">
+  <compiler angle="radian" coordinate="local" inertiafromgeom="true"/>
+  <option timestep="0.002" gravity="0 0 -9.81" integrator="implicit">
+    <flag contact="enable"/>
+  </option>
+  <default>
+    <joint armature="0.01" damping="1"/>
+    <geom condim="3" friction="0.8 0.4 0.4" margin="0.001" rgba="0.9 0.9 0.9 1"/>
+  </default>
+  <asset>
+    <texture name="floor_tex" type="2d" builtin="checker" rgb1="0.85 0.85 0.85" rgb2="0.7 0.7 0.7" width="64" height="64"/>
+    <material name="floor_mat" texture="floor_tex" texrepeat="4 4" reflectance="0.1"/>
+    <material name="crib_mat" rgba="0.95 0.95 0.9 1"/>
+    <material name="charging_mat" rgba="0.3 0.7 0.4 0.6"/>
+    <material name="pen_mat" rgba="0.88 0.88 0.92 1"/>
+  </asset>
+  <worldbody>
+    <light name="main" pos="0 0 2" dir="0 0 -1" diffuse="1 1 1" specular="0.2 0.2 0.2"/>
+    <!-- Play yard: main floor 3x3 m -->
+    <geom name="play_yard" type="plane" pos="0 0 0" size="1.5 1.5 0.01" material="floor_mat"/>
+    <!-- Crib: 0.6x0.6 m floor at origin corner, low walls 5 cm -->
+    <body name="crib" pos="0.3 0.3 0">
+      <geom name="crib_floor" type="box" size="0.3 0.3 0.01" pos="0 0 0" material="crib_mat"/>
+      <!-- Charging pad (visual + site for contact/proximity in life model) -->
+      <geom name="charging_pad" type="cylinder" size="0.12 0.01" pos="0 0 0.005" material="charging_mat" contype="0" conaffinity="0"/>
+      <site name="charging_zone" pos="0 0 0.02" size="0.15" rgba="0.2 0.8 0.3 0.4"/>
+      <!-- Low walls -->
+      <geom name="crib_wall_s" type="box" size="0.3 0.025 0.035" pos="0 -0.325 0.035"/>
+      <geom name="crib_wall_n" type="box" size="0.3 0.025 0.035" pos="0 0.325 0.035"/>
+      <geom name="crib_wall_w" type="box" size="0.025 0.3 0.035" pos="-0.325 0 0.035"/>
+      <geom name="crib_wall_e" type="box" size="0.025 0.3 0.035" pos="0.325 0 0.035"/>
+    </body>
+    <!-- Step + Play pen: 1.2x1.2 m platform at z = 0.08 m -->
+    <body name="play_pen" pos="0.6 0.6 0.04">
+      <geom name="pen_floor" type="box" size="0.6 0.6 0.04" material="pen_mat"/>
+    </body>
+    <!-- Sound flower: stationary base, rotating head (hinge about vertical) -->
+    <body name="sound_flower" pos="1.0 0.3 0">
+      <geom name="flower_base" type="cylinder" size="0.06 0.04" pos="0 0 0.04" rgba="0.4 0.35 0.3 1"/>
+      <body name="flower_head" pos="0 0 0.12">
+        <joint name="flower_hinge" type="hinge" axis="0 0 1" damping="0.1"/>
+        <geom name="flower_head_geom" type="sphere" size="0.08" pos="0 0 0.05" rgba="0.9 0.75 0.2 1"/>
+        <site name="flower_anchor" pos="0 0 0.08" size="0.03" rgba="0.9 0.7 0.2 0.5"/>
+      </body>
+    </body>
+  </worldbody>
+  <actuator>
+    <motor name="flower_motor" joint="flower_hinge" ctrlrange="-1 1" gear="5"/>
+  </actuator>
+</mujoco>

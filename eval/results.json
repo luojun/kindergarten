@@ -1,0 +1,39 @@
+{
+  "config": "/home/jun/Play/kindergarten/eval/config.yaml",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "survival_rate": 0.0,
+  "mean_episode_length": 500.0,
+  "episodes": [
+    {
+      "seed": 0,
+      "steps": 500,
+      "done_by_death": true,
+      "total_reward": 4.899999999999938,
+      "charging_visits": 0,
+      "time_to_leave_crib": null,
+      "steps_in_play_yard": 0
+    },
+    {
+      "seed": 1,
+      "steps": 500,
+      "done_by_death": true,
+      "total_reward": 4.899999999999938,
+      "charging_visits": 0,
+      "time_to_leave_crib": null,
+      "steps_in_play_yard": 0
+    },
+    {
+      "seed": 2,
+      "steps": 500,
+      "done_by_death": true,
+      "total_reward": 4.899999999999938,
+      "charging_visits": 0,
+      "time_to_leave_crib": null,
+      "steps_in_play_yard": 0
+    }
+  ]
+}
