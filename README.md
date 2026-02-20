@@ -20,5 +20,19 @@ SEA Kindergarten is a kindergarten of robots, a physical environment for robots 
 2. Alberta Plan Learning Algorithms
 3. Continual Learning for Continual Living -- auto-curriculum.
 
+---
+
+#### Phase 1 (digital twin + EMA + evaluation)
+
+- [ ] To be reviewed by a human!
+
+- **Physical layout**: [docs/LAYOUT.md](docs/LAYOUT.md) — reference dimensions, diagram, build notes.
+- **Simulation**: [sim/](sim/) — MuJoCo scene (crib, play pen, play yard, charging zone, sound flower); [sim/kindergarten_ema.xml](sim/kindergarten_ema.xml) includes EMA (ant).
+- **Environment**: [env/kindergarten_ema.py](env/kindergarten_ema.py) — life model (battery drain, charging), observation, reward.
+- **Evaluation**: [docs/EVALUATION.md](docs/EVALUATION.md) — metrics and protocol; [eval/run_eval.py](eval/run_eval.py) — run with fixed seeds, output JSON.
+- **Alberta Plan**: [docs/ALBERTA_PLAN.md](docs/ALBERTA_PLAN.md) — how the kindergarten supports the vision.
+
+Run (with venv): `pip install -r requirements.txt` then `python env/run_ema.py` or `python eval/run_eval.py --out results.json`.
+
 
 
