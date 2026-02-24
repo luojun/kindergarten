@@ -1,6 +1,16 @@
 # SEA Kindergarten: Reference Physical Layout
 
 - [ ] To be reviewed by a human!
+- Adjustments
+  - [ ] Whole play pen area raised to 36cm
+  - [ ] Play pen surrounded by fence rising to 1m from floor of play pen
+  - [ ] Play pen terraced down to the floor in 2 steps doward to floor, each step of 18cm rise and 30cm run
+  - [ ] Two double-swining gates, one at middle of north side, and at south corner on the east side, each 10cm off the play pen floor, 80cm tall and 80cm wide. These could be pushed open from both inside and outside.
+  - [ ] The north side door opens to a ramp.
+  - [ ] The crib is at 18cm from the yard floor and -18cm from the play pen floor
+  - [ ] The crib is to be 60cm (east and west) x 80cm (north & south), it's east side is a ramp that has a 36cm run.
+  - [ ] The other three sides all have two steps, each step with 9cm rise and 18cm run.
+- Additon of a robot caretaker, a wheeled mobile manipulator who could be send around the yard and into the play pen (through the north gate) to put ants that have run out of battery back to the charging pad, etc. 
 
 Indoor, workshop-cum-playground environment open to foot traffic. Single bounded zone with crib, play pen, and play yard for the auto-curriculum (crib → play pen → play yard).
 

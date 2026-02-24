@@ -1,6 +1,7 @@
 # Alberta Plan in the Kindergarten
 
 - [ ] To be reviewed by a human!
+- [ ] Consider the "OaK hypothesis"
 
 The SEA Kindergarten is a physical and virtual testbed for research aligned with the **Alberta Plan**: continual learning in a “big world,” with temporal uniformity and sensorimotor abstraction.
 

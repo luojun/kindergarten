@@ -1,6 +1,7 @@
 # SEA Kindergarten: Evaluation Protocol
 
 - [ ] To be reviewed by a human!
+- [ ] Consider mean time between caretaker intervention during different periods of time.
 
 Evaluation is **continual**: no train/test split; agents run in the same environment over long horizons. Metrics are computed over time and over multiple runs with fixed seeds for reproducibility.
 
