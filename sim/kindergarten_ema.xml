@@ -1,6 +1,6 @@
 <!--
-  SEA Kindergarten + EMA (ant). Combined scene for continual learning with life (battery/charging).
-  Crib, play pen, play yard + one ant. Charging zone in crib; life model in Python.
+  SEA Kindergarten + EMA (ant). Revised layout: 5x8 yard, pen +36cm, crib +18cm, two charging pads.
+  Crib, play pen, play yard; life model in Python (charging on either pad).
 -->
 <mujoco model="kindergarten_ema">
   <compiler angle="radian" coordinate="local" inertiafromgeom="true"/>
@@ -13,28 +13,36 @@
   </default>
   <asset>
     <texture name="floor_tex" type="2d" builtin="checker" rgb1="0.85 0.85 0.85" rgb2="0.7 0.7 0.7" width="64" height="64"/>
-    <material name="floor_mat" texture="floor_tex" texrepeat="4 4" reflectance="0.1"/>
+    <material name="floor_mat" texture="floor_tex" texrepeat="8 12" reflectance="0.1"/>
     <material name="crib_mat" rgba="0.95 0.95 0.9 1"/>
     <material name="charging_mat" rgba="0.3 0.7 0.4 0.6"/>
     <material name="pen_mat" rgba="0.88 0.88 0.92 1"/>
+    <material name="fence_mat" rgba="0.6 0.55 0.5 1"/>
   </asset>
   <worldbody>
-    <light name="main" pos="0 0 2" dir="0 0 -1" diffuse="1 1 1" specular="0.2 0.2 0.2"/>
-    <geom name="play_yard" type="plane" pos="0 0 0" size="1.5 1.5 0.01" material="floor_mat"/>
-    <body name="crib" pos="0.3 0.3 0">
-      <geom name="crib_floor" type="box" size="0.3 0.3 0.01" pos="0 0 0" material="crib_mat"/>
-      <geom name="charging_pad" type="cylinder" size="0.12 0.01" pos="0 0 0.005" material="charging_mat" contype="0" conaffinity="0"/>
-      <site name="charging_zone" pos="0 0 0.02" size="0.15" rgba="0.2 0.8 0.3 0.4"/>
-      <geom name="crib_wall_s" type="box" size="0.3 0.025 0.035" pos="0 -0.325 0.035"/>
-      <geom name="crib_wall_n" type="box" size="0.3 0.025 0.035" pos="0 0.325 0.035"/>
-      <geom name="crib_wall_w" type="box" size="0.025 0.3 0.035" pos="-0.325 0 0.035"/>
-      <geom name="crib_wall_e" type="box" size="0.025 0.3 0.035" pos="0.325 0 0.035"/>
+    <light name="main" pos="0 0 3" dir="0 0 -1" diffuse="1 1 1" specular="0.2 0.2 0.2"/>
+    <geom name="play_yard" type="plane" pos="0 0 0" size="2.5 4 0.01" material="floor_mat"/>
+    <body name="play_pen" pos="0 0 0.37">
+      <geom name="pen_floor" type="box" size="1 0.75 0.01" pos="0 0 0" material="pen_mat"/>
     </body>
-    <body name="play_pen" pos="0.6 0.6 0.04">
-      <geom name="pen_floor" type="box" size="0.6 0.6 0.04" material="pen_mat"/>
+    <body name="fence_n1" pos="0 -0.75 0.86"><geom name="fence_n1" type="box" size="0.6 0.03 0.5" material="fence_mat"/></body>
+    <body name="fence_n2" pos="0 0.75 0.86"><geom name="fence_n2" type="box" size="0.6 0.03 0.5" material="fence_mat"/></body>
+    <body name="fence_s" pos="0 0 0.86"><geom name="fence_s" type="box" size="1.03 0.03 0.5" pos="0 -0.75 0" material="fence_mat"/></body>
+    <body name="fence_e1" pos="1 0.2 0.86"><geom name="fence_e1" type="box" size="0.03 0.55 0.5" material="fence_mat"/></body>
+    <body name="fence_e2" pos="1 -0.5 0.86"><geom name="fence_e2" type="box" size="0.03 0.2 0.5" material="fence_mat"/></body>
+    <body name="fence_w" pos="-1 0 0.86"><geom name="fence_w" type="box" size="0.03 0.78 0.5" material="fence_mat"/></body>
+    <body name="crib" pos="0 0 0.19">
+      <geom name="crib_floor" type="box" size="0.3 0.4 0.01" pos="0 0 0" material="crib_mat"/>
+      <geom name="charging_pad_1" type="box" size="0.05 0.05 0.005" pos="-0.12 -0.15 0.005" material="charging_mat" contype="0" conaffinity="0"/>
+      <geom name="charging_pad_2" type="box" size="0.05 0.05 0.005" pos="0.12 0.15 0.005" material="charging_mat" contype="0" conaffinity="0"/>
+      <site name="charging_zone_1" pos="-0.12 -0.15 0.02" size="0.08" rgba="0.2 0.8 0.3 0.4"/>
+      <site name="charging_zone_2" pos="0.12 0.15 0.02" size="0.08" rgba="0.2 0.8 0.3 0.4"/>
     </body>
-    <!-- Sound flower: stationary base, rotating head -->
-    <body name="sound_flower" pos="1.0 0.3 0">
+    <body name="crib_ramp" pos="0.12 0 0.27">
+      <geom name="ramp" type="box" size="0.18 0.4 0.01" euler="0 -0.46 0" material="pen_mat"/>
+    </body>
+    <body name="terrace_step1" pos="0 -1.08 0.09"><geom name="terrace1" type="box" size="1.03 0.15 0.09" material="pen_mat"/></body>
+    <body name="sound_flower" pos="2 3 0">
       <geom name="flower_base" type="cylinder" size="0.06 0.04" pos="0 0 0.04" rgba="0.4 0.35 0.3 1"/>
       <body name="flower_head" pos="0 0 0.12">
         <joint name="flower_hinge" type="hinge" axis="0 0 1" damping="0.1"/>
@@ -42,8 +50,8 @@
         <site name="flower_anchor" pos="0 0 0.08" size="0.03" rgba="0.9 0.7 0.2 0.5"/>
       </body>
     </body>
-    <!-- EMA: ant torso (free joint) + 4 legs, 8 hinge joints -->
-    <body name="torso" pos="0.3 0.3 0.08">
+    <!-- EMA: ant in crib (center 0,0; standing on crib floor 0.18) -->
+    <body name="torso" pos="0 0 0.25">
       <geom name="torso_geom" size="0.25" type="sphere" density="5" friction="1 0.5 0.5" rgba="0.8 0.6 0.4 1"/>
       <joint name="root" type="free"/>
       <body name="front_left_leg" pos="0 0 0">

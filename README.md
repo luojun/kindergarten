@@ -4,27 +4,26 @@ SEA Kindergarten is a kindergarten of robots, a physical environment for robots 
 
 #### Robots
 
-1. Ant, MuJoCo style and physical. (EMA, or Embodied MuJoCo Ant)
-2. Robot dog, Unitree style and physical.
-3. Sunflower or Soundflower, standing alone but rotates.
+1. A few Open Ants (from Openmind, Gymnasium style and physical).
+2. A robot dog, Unitree Go2 or similar.
+3. A couple of SolPals (Super Sunflower) or Soundflowers, possibly implemented with budget 4-6 DOF robotic arms.
+4. Etc.
+5. Caretaker robot: a mobile manipulator that does not need to learn but put the kindergarten back in order every night, including resuscitating dead ants.
 
 #### Environment
 
 1. Openness: open to humans and robots to go in and out.
 2. A "live-in" environment for robots to get all their needs for survival and learning met.
-3. Telemetry: robots are remotely monitored, and may be remotely controlled.
+3. Telemetry: robots are remotely monitored, and may be remotely controlled but
+no learning from remote control.
 
 #### Research
 
-1. Sensorimotor Abstraction Architecture
-2. Alberta Plan Learning Algorithms
-3. Continual Learning for Continual Living -- auto-curriculum.
-
----
+1. Sensorimotor abstraction architecture
+2. Alberta Plan: learning algorithms and the OaK architecture (as partly auto-curriculum)
+3. Continual Learning for Continual Living, with auto-curriculum.
 
 #### Phase 1 (digital twin + EMA + evaluation)
-
-- [ ] To be reviewed by a human!
 
 - **Physical layout**: [docs/LAYOUT.md](docs/LAYOUT.md) — reference dimensions, diagram, build notes.
 - **Simulation**: [sim/](sim/) — MuJoCo scene (crib, play pen, play yard, charging zone, sound flower); [sim/kindergarten_ema.xml](sim/kindergarten_ema.xml) includes EMA (ant).
@@ -33,6 +32,4 @@ SEA Kindergarten is a kindergarten of robots, a physical environment for robots 
 - **Alberta Plan**: [docs/ALBERTA_PLAN.md](docs/ALBERTA_PLAN.md) — how the kindergarten supports the vision.
 
 Run (with venv): `pip install -r requirements.txt` then `python env/run_ema.py` or `python eval/run_eval.py --out results.json`.
-
-
 

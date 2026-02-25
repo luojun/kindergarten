@@ -16,7 +16,7 @@ def main():
     data = mujoco.MjData(model)
     print("Kindergarten model loaded.")
     print("  Bodies:", [model.id2name(i, "body") for i in range(model.nbody)])
-    print("  Sites: charging_zone, flower_anchor")
+    print("  Sites: charging_zone_1, charging_zone_2, flower_anchor")
     # Optional: render with mujoco.viewer if available (mujoco 3.x)
     try:
         mujoco.viewer.launch_passive(model, data)

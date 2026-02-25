@@ -11,9 +11,9 @@ Evaluation is **continual**: no train/test split; agents run in the same environ
 |--------|-------------|
 | **Survival rate** | Fraction of episodes that do not end in death (battery > 0 at horizon). |
 | **Mean episode length** | Mean number of steps until done (death or max_steps). |
-| **Charging visits** | Number of steps (or transitions) during which the agent was on the charging zone. |
-| **Time to leave crib** | First step at which torso xy is outside the crib bounding box (e.g. [0, 0.6] × [0, 0.6]). |
-| **Time in play yard** | Number of steps with torso in play yard (e.g. outside crib and outside play pen footprint). |
+| **Charging visits** | Number of steps during which the agent was on either charging pad (two 10×10 cm pads in crib). |
+| **Time to leave crib** | First step at which torso xy is outside the crib bounding box (see `zones` in config). |
+| **Time in play yard** | Number of steps with torso in play yard (outside play pen footprint; see `zones` in config). |
 | **Crib → pen → yard** | Binary or count: whether the agent reached pen (and optionally yard) after starting in crib. |
 
 ## Protocol

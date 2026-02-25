@@ -1,7 +1,8 @@
 <!--
-  SEA Kindergarten digital twin (minimal layout).
-  Crib (0.6x0.6 m) at floor level, step up 0.08 m to play pen (1.2x1.2 m), play yard 3x3 m.
-  Units: meter, radian, kg.
+  SEA Kindergarten digital twin (revised layout).
+  Play yard 5m (E-W) x 8m (N-S). Play pen 2m x 1.5m at +36cm. Crib 0.6m x 0.8m at +18cm inside pen.
+  Two charging pads (10x10cm) non-symmetric in crib. Fence 1m from pen floor. Ramp on crib east; steps simplified.
+  Units: meter, radian, kg. Origin at yard center; x=E-W, y=N-S, z=up.
 -->
 <mujoco model="kindergarten">
   <compiler angle="radian" coordinate="local" inertiafromgeom="true"/>
@@ -14,33 +15,44 @@
   </default>
   <asset>
     <texture name="floor_tex" type="2d" builtin="checker" rgb1="0.85 0.85 0.85" rgb2="0.7 0.7 0.7" width="64" height="64"/>
-    <material name="floor_mat" texture="floor_tex" texrepeat="4 4" reflectance="0.1"/>
+    <material name="floor_mat" texture="floor_tex" texrepeat="8 12" reflectance="0.1"/>
     <material name="crib_mat" rgba="0.95 0.95 0.9 1"/>
     <material name="charging_mat" rgba="0.3 0.7 0.4 0.6"/>
     <material name="pen_mat" rgba="0.88 0.88 0.92 1"/>
+    <material name="fence_mat" rgba="0.6 0.55 0.5 1"/>
   </asset>
   <worldbody>
-    <light name="main" pos="0 0 2" dir="0 0 -1" diffuse="1 1 1" specular="0.2 0.2 0.2"/>
-    <!-- Play yard: main floor 3x3 m -->
-    <geom name="play_yard" type="plane" pos="0 0 0" size="1.5 1.5 0.01" material="floor_mat"/>
-    <!-- Crib: 0.6x0.6 m floor at origin corner, low walls 5 cm -->
-    <body name="crib" pos="0.3 0.3 0">
-      <geom name="crib_floor" type="box" size="0.3 0.3 0.01" pos="0 0 0" material="crib_mat"/>
-      <!-- Charging pad (visual + site for contact/proximity in life model) -->
-      <geom name="charging_pad" type="cylinder" size="0.12 0.01" pos="0 0 0.005" material="charging_mat" contype="0" conaffinity="0"/>
-      <site name="charging_zone" pos="0 0 0.02" size="0.15" rgba="0.2 0.8 0.3 0.4"/>
-      <!-- Low walls -->
-      <geom name="crib_wall_s" type="box" size="0.3 0.025 0.035" pos="0 -0.325 0.035"/>
-      <geom name="crib_wall_n" type="box" size="0.3 0.025 0.035" pos="0 0.325 0.035"/>
-      <geom name="crib_wall_w" type="box" size="0.025 0.3 0.035" pos="-0.325 0 0.035"/>
-      <geom name="crib_wall_e" type="box" size="0.025 0.3 0.035" pos="0.325 0 0.035"/>
+    <light name="main" pos="0 0 3" dir="0 0 -1" diffuse="1 1 1" specular="0.2 0.2 0.2"/>
+    <!-- Play yard: 5m x 8m, center at origin -->
+    <geom name="play_yard" type="plane" pos="0 0 0" size="2.5 4 0.01" material="floor_mat"/>
+    <!-- Play pen floor: 2m (x) x 1.5m (y), top at z=0.36 -->
+    <body name="play_pen" pos="0 0 0.37">
+      <geom name="pen_floor" type="box" size="1 0.75 0.01" pos="0 0 0" material="pen_mat"/>
     </body>
-    <!-- Step + Play pen: 1.2x1.2 m platform at z = 0.08 m -->
-    <body name="play_pen" pos="0.6 0.6 0.04">
-      <geom name="pen_floor" type="box" size="0.6 0.6 0.04" material="pen_mat"/>
+    <!-- Fence around play pen: 1m high from pen floor (z 0.36 to 1.36). Four sides with gate gaps (north middle, east near south). -->
+    <body name="fence_n1" pos="0 -0.75 0.86"><geom name="fence_n1" type="box" size="0.6 0.03 0.5" material="fence_mat"/></body>
+    <body name="fence_n2" pos="0 0.75 0.86"><geom name="fence_n2" type="box" size="0.6 0.03 0.5" material="fence_mat"/></body>
+    <body name="fence_s" pos="0 0 0.86"><geom name="fence_s" type="box" size="1.03 0.03 0.5" pos="0 -0.75 0" material="fence_mat"/></body>
+    <body name="fence_e1" pos="1 0.2 0.86"><geom name="fence_e1" type="box" size="0.03 0.55 0.5" material="fence_mat"/></body>
+    <body name="fence_e2" pos="1 -0.5 0.86"><geom name="fence_e2" type="box" size="0.03 0.2 0.5" material="fence_mat"/></body>
+    <body name="fence_w" pos="-1 0 0.86"><geom name="fence_w" type="box" size="0.03 0.78 0.5" material="fence_mat"/></body>
+    <!-- Crib: 0.6m (x) x 0.8m (y), floor at z=0.18 (18cm below pen floor) -->
+    <body name="crib" pos="0 0 0.19">
+      <geom name="crib_floor" type="box" size="0.3 0.4 0.01" pos="0 0 0" material="crib_mat"/>
+      <!-- Two charging pads 10x10cm, non-symmetric -->
+      <geom name="charging_pad_1" type="box" size="0.05 0.05 0.005" pos="-0.12 -0.15 0.005" material="charging_mat" contype="0" conaffinity="0"/>
+      <geom name="charging_pad_2" type="box" size="0.05 0.05 0.005" pos="0.12 0.15 0.005" material="charging_mat" contype="0" conaffinity="0"/>
+      <site name="charging_zone_1" pos="-0.12 -0.15 0.02" size="0.08" rgba="0.2 0.8 0.3 0.4"/>
+      <site name="charging_zone_2" pos="0.12 0.15 0.02" size="0.08" rgba="0.2 0.8 0.3 0.4"/>
     </body>
-    <!-- Sound flower: stationary base, rotating head (hinge about vertical) -->
-    <body name="sound_flower" pos="1.0 0.3 0">
+    <!-- Crib east ramp: from pen floor (0.36) to crib floor (0.18), 36cm run -->
+    <body name="crib_ramp" pos="0.12 0 0.27">
+      <geom name="ramp" type="box" size="0.18 0.4 0.01" euler="0 -0.46 0" material="pen_mat"/>
+    </body>
+    <!-- Terrace: one step down from pen (simplified; full spec is 2 steps 18cm/30cm) -->
+    <body name="terrace_step1" pos="0 -1.08 0.09"><geom name="terrace1" type="box" size="1.03 0.15 0.09" material="pen_mat"/></body>
+    <!-- Sound flower in yard -->
+    <body name="sound_flower" pos="2 3 0">
       <geom name="flower_base" type="cylinder" size="0.06 0.04" pos="0 0 0.04" rgba="0.4 0.35 0.3 1"/>
       <body name="flower_head" pos="0 0 0.12">
         <joint name="flower_hinge" type="hinge" axis="0 0 1" damping="0.1"/>

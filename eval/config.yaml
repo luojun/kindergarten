@@ -1,19 +1,21 @@
-# Evaluation config for SEA Kindergarten EMA env
+# Evaluation config for SEA Kindergarten EMA env (revised layout: 5x8 yard, pen +36cm, crib +18cm)
 env:
   model_path: null  # use default sim/kindergarten_ema.xml
   battery_drain: 0.002
   charging_rate: 0.01
   battery_cap: 1.0
-  charging_radius: 0.2
+  charging_radius: 0.15  # either pad (10x10cm)
   max_steps: 5000
 
 eval:
   seeds: [0, 1, 2, 3, 4, 6, 7, 8, 9]
-  num_episodes_per_seed: 1  # one episode per seed for reporting
+  num_episodes_per_seed: 1
 
-# Zone bounds (meters) for curriculum metrics; match sim layout
+# Zone bounds (meters); origin at yard center. Crib 0.6x0.8, pen 2x1.5
 zones:
-  crib_x: [0.0, 0.6]
-  crib_y: [0.0, 0.6]
-  pen_x: [0.0, 1.2]
-  pen_y: [0.0, 1.2]
+  crib_x: [-0.3, 0.3]
+  crib_y: [-0.4, 0.4]
+  pen_x: [-1.0, 1.0]
+  pen_y: [-0.75, 0.75]
+  yard_x: [-2.5, 2.5]
+  yard_y: [-4.0, 4.0]

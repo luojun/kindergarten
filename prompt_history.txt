@@ -5,3 +5,27 @@ JL: Take a look at @README.md and @EMA.md to get a sense of what this project is
 ~
 Cursor: responded with docs/planning_history/sea_kindergarten_roadmap_2026-02-20.md that was carried out.
 ~~
+
+~~
+Agent - 20260205
+~
+Use the following specs to do a round of up of the project, changing all files that need to be change:
+
+- Incorporate these adjustments
+  - Play Yard is to be 5m by 8m
+  - Play Pen specs:
+    - Play Pen is to be 150cm (north-south) by 200cm (east-west).
+    - Whole Play Pen area raised to 36cm above the floor of the Play Yard
+    - Play Pen surrounded by fence rising to 1m from floor of play pen
+    - On the outside, Play Pen terraced in 2 steps doward to kindergarten floor, each step is 18cm rise and 30cm run
+    - Play pen has two double-swinging gates, one at middle of north side, and the other near south corner on the east side, each 10cm off the play pen floor, 80cm tall and 80cm wide. These could be pushed open from both inside and outside.
+      - The north side gate opens to a ramp.
+  - One crib inside the Play pen.
+    - The crib floor is at -18cm from the Play Pen floor (thus +18cm above Play Yard)
+    - The crib floor is to be 60cm (east and west) x 80cm (north & south) and flat.
+    - Two charging pads, each 10cm x 10cm, and non-symmetrically placed on the crib floor. 
+    - Crib's east side is a ramp downward from Play Pen floor to Crib floor that has a 36cm run.
+    - The other three sides of the Crib all have two steps down from the Play Pen floor, each step with 9cm rise and 18cm run.
+  - The robot caretaker, a wheeled mobile manipulator who could be sent around the yard and into the Play Pen (through the north gate) to put ants that have run out of battery back to the charging pad, etc. 
+- End of adjustments
+~

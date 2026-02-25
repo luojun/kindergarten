@@ -1,71 +1,76 @@
 # SEA Kindergarten: Reference Physical Layout
 
-- [ ] To be reviewed by a human!
-- Adjustments
-  - [ ] Whole play pen area raised to 36cm
-  - [ ] Play pen surrounded by fence rising to 1m from floor of play pen
-  - [ ] Play pen terraced down to the floor in 2 steps doward to floor, each step of 18cm rise and 30cm run
-  - [ ] Two double-swining gates, one at middle of north side, and at south corner on the east side, each 10cm off the play pen floor, 80cm tall and 80cm wide. These could be pushed open from both inside and outside.
-  - [ ] The north side door opens to a ramp.
-  - [ ] The crib is at 18cm from the yard floor and -18cm from the play pen floor
-  - [ ] The crib is to be 60cm (east and west) x 80cm (north & south), it's east side is a ramp that has a 36cm run.
-  - [ ] The other three sides all have two steps, each step with 9cm rise and 18cm run.
-- Additon of a robot caretaker, a wheeled mobile manipulator who could be send around the yard and into the play pen (through the north gate) to put ants that have run out of battery back to the charging pad, etc. 
+Indoor, workshop-cum-playground environment open to foot traffic. Play yard with raised play pen; one crib inside the play pen. Auto-curriculum: crib → play pen → play yard. Robot caretaker (wheeled mobile manipulator) can be sent around the yard and into the play pen to return ants to the charging pad.
 
-Indoor, workshop-cum-playground environment open to foot traffic. Single bounded zone with crib, play pen, and play yard for the auto-curriculum (crib → play pen → play yard).
-
-## Diagram (top view)
+## Diagram (top view, N = +y, E = +x)
 
 ```
-                    ingress/egress (open)
-    +----------------------------------------------------------+
-    |                     OPEN FLOOR / PLAY YARD               |
-    |  (main level, wheeled/legged/future flying zone)         |
-    |                                                          |
-    |    +-------------------+     [sound flower]              |
-    |    |   PLAY PEN        |        (anchor)                 |
-    |    |  (raised terrace) |                                 |
-    |    |  +------------+   |                                 |
-    |    |  |   CRIB     |   |   step up (~8 cm)               |
-    |    |  | [charging] |   |   from crib to pen              |
-    |    |  +------------+   |                                 |
-    |    +-------------------+   terrace to yard (main level)  |
-    |                                                          |
-    +----------------------------------------------------------+
+    N (+y)
+    ^
+    |   PLAY YARD 5 m (E-W) x 8 m (N-S)
+    |   +--------------------------------------------------+
+    |   |                    [sound flower]                |
+    |   |  +------------------+  north gate (to ramp)       |
+    |   |  |   PLAY PEN       |  (middle of north side)     |
+    |   |  |  2m (E-W) x 1.5m |  fence 1m from pen floor   |
+    |   |  |  floor +36cm     |                             |
+    |   |  |  +----------+    |  east gate (near S corner)  |
+    |   |  |  |  CRIB    |    |                             |
+    |   |  |  | 0.6x0.8m | ramp (E side)                    |
+    |   |  |  | floor    | 2 steps (N,W,S) 9cm/18cm        |
+    |   |  |  | +18cm    | [pad1] [pad2]                    |
+    |   |  |  +----------+                                  |
+    |   |  |  terrace: 2 steps down to yard (18cm rise,     |
+    |   |  +--|-----------+  30cm run each)                  |
+    |   |     ingress/egress                                |
+    +---+---------------------------------------------------+
+        origin (0,0)  ---> E (+x)
 ```
 
-## Dimensions (minimal “start small” footprint)
+## Dimensions
 
-| Zone | Size | Height / step | Notes |
-|------|------|----------------|--------|
-| **Crib** | 60 cm × 60 cm | Floor level | Wireless charging pad centered; low wall ~5 cm to contain ant. |
-| **Step (crib → pen)** | Full crib edge | 8 cm up | Single step; climbable by EMA. |
-| **Play pen** | 120 cm × 120 cm | +8 cm from floor | Terraced area; one step from crib. |
-| **Play pen → play yard** | Full pen edge | 0 cm (flush) or small curb | Ramp or flush to main floor. |
-| **Play yard / open floor** | 300 cm × 300 cm (min) | Main floor | Room for EMA, flower, later wheeled/flying. |
-| **Sound flower anchor** | 30 cm × 30 cm | Main floor | Fixed spot; no obstacle to traffic. |
+### Play yard
+| Item | Size | Notes |
+|------|------|--------|
+| **Play yard** | 5 m (E–W) × 8 m (N–S) | Main floor (z = 0). Open to foot traffic. |
 
-**Total minimal footprint**: ~3 m × 3 m (play yard) containing crib + play pen in one corner.
+### Play pen
+| Item | Size | Notes |
+|------|------|--------|
+| **Play pen** | 150 cm (N–S) × 200 cm (E–W) | Whole area raised **36 cm** above play yard floor. |
+| **Fence** | 1 m high from play pen floor | Surrounds play pen; gates are openings. |
+| **Terrace** | 2 steps down to yard | Each step: **18 cm** rise, **30 cm** run. |
+| **North gate** | Middle of north side | Double-swinging, 80 cm wide × 80 cm tall, sill 10 cm above pen floor. Opens to ramp. |
+| **East gate** | Near south corner, east side | Same: 80 cm × 80 cm, 10 cm sill. Push open from inside or outside. |
+
+### Crib (inside play pen)
+| Item | Size | Notes |
+|------|------|--------|
+| **Crib floor** | 60 cm (E–W) × 80 cm (N–S) | **18 cm below** play pen floor (+18 cm above play yard). Flat. |
+| **Charging pads** | Two, each 10 cm × 10 cm | Non-symmetrically placed on crib floor. |
+| **East side** | Ramp | Down from play pen floor to crib floor; **36 cm** run. |
+| **N, W, S sides** | Two steps down from pen | Each step: **9 cm** rise, **18 cm** run. |
+
+### Robot caretaker
+- Wheeled mobile manipulator; can be sent around the yard and into the play pen (through the north gate) to place ants that have run out of battery back on a charging pad.
 
 ## Zones summary
 
-- **Crib**: Wireless charging pad at bottom; first stage of auto-curriculum; contained so EMA can learn to step out.
-- **Play pen**: One step up from crib; intermediate exploration; optional second charging pad for later.
-- **Play yard**: Main level; open to humans and robots; shared utilities (charging, flower, future BYOR).
-- **Openness**: No full enclosure; clear ingress/egress so the world stays “big” (unpredictable traffic).
+- **Crib**: Two wireless charging pads; first stage of auto-curriculum; ramp (east) and steps (N, W, S) to play pen.
+- **Play pen**: Raised, fenced, two gates; terrace steps down to play yard.
+- **Play yard**: Main level; open to humans and robots; sound flower, caretaker, future BYOR.
 
 ## Materials and safety (build notes)
 
-- **Floor**: Smooth, low-friction where robots run (e.g. laminate or sealed wood); no loose cables in traffic.
-- **Step/terrace**: Rounded edges; height 8 cm for ant-scale step-up.
-- **Charging**: Wireless pad(s) flush or recessed; cable routing under or along wall, not across walkway.
-- **Crib wall**: Soft or rounded (e.g. foam strip) so no sharp edges.
-- **Telemetry**: Power and pose feeds; optional remote control; mount cameras/sensors so they don’t obstruct movement.
+- **Floor**: Smooth, low-friction; no loose cables in traffic.
+- **Steps / ramp**: Rounded edges; dimensions as above.
+- **Charging**: Pads flush or recessed; cable routing away from walkways.
+- **Fence / gates**: No sharp edges; gates open both ways.
 
 ## Telemetry
 
-- **Power**: Battery level (and charging state when on pad).
-- **Pose**: Position and orientation of each robot (and sound flower angle if applicable).
-- **Optional**: Remote control for experiments and demos; video feeds for monitoring.
+- **Power**: Battery level and charging state when on a pad.
+- **Pose**: Position and orientation of each robot (and sound flower if applicable).
+- **Optional**: Remote control for experiments and demos; video feeds.
 
-This layout is the reference for the **digital twin** (MuJoCo scene) and for building the minimal physical crib+pen in Phase 2.
+This layout is the reference for the **digital twin** (MuJoCo scene) and for building the physical kindergarten.
