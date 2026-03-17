@@ -8,7 +8,7 @@ SEA Kindergarten is a kindergarten of robots, a physical environment for robots 
 2. A robot dog, Unitree Go2 or similar.
 3. A couple of SolPals (Super Sunflower) or Soundflowers, possibly implemented with budget 4-6 DOF robotic arms.
 4. Etc.
-5. Caretaker robot: a mobile manipulator that does not need to learn but put the kindergarten back in order every night, including resuscitating dead ants.
+5. Caretaker robot: a mobile manipulator that does not need to learn but put the kindergarten back in order at night, including resuscitating dead ants.
 
 #### Environment
 
@@ -19,9 +19,9 @@ no learning from remote control.
 
 #### Research
 
-1. Sensorimotor abstraction architecture
-2. Alberta Plan: learning algorithms and the OaK architecture (as partly auto-curriculum)
-3. Continual Learning for Continual Living, with auto-curriculum.
+1. Alberta Plan: learning algorithms and especially the OaK architecture
+2. Continual Learning for Continual Living, with auto-curriculum.
+3. Sensorimotor abstraction architecture
 
 #### Phase 1 (digital twin + EMA + evaluation)
 
@@ -32,4 +32,3 @@ no learning from remote control.
 - **Alberta Plan**: [docs/ALBERTA_PLAN.md](docs/ALBERTA_PLAN.md) — how the kindergarten supports the vision.
 
 Run (with venv): `pip install -r requirements.txt` then `python env/run_ema.py` or `python eval/run_eval.py --out results.json`.
-

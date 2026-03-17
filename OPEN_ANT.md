@@ -1,8 +1,8 @@
-### EMA, or Embodied MuJoCo Ant
+### Open Ant
 
 #### Desiderata:
 
-1. It needs a life: wireless battery charge may be the right way to do it.
+1. It needs an untethered life: wireless battery charge or docking may be the right way to do it. Cutting the umbilical cord.
 2. It needs torque control.
 3. It needs an auto-curriculum environment: from a crib, to a play pen, to a play yard, to the whole kindergarten, nested.
 
