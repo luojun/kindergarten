@@ -18,7 +18,7 @@ The Openmind Robot Kindergarten is a kindergarten for robots. It is an ordinary 
 ### 3. Part of the Big World
 
 1. *Being in the kindergarten is being in the big world*, with the environment continuing into the big world, and without any possibility of the agent representing the environment fully.
-2. *All events are part of the environment dynamics*, including accidents and recoveries, interventions and resumptions that may or may not be directly or immediately experiencable.
+2. *All events are part of the environment dynamics*, including accidents and recoveries, interventions and resumptions that may or may not be directly or immediately experienceable.
 3. *All actors are part of the environment*, including caretakers, researchers, and visitors.
 
 
@@ -26,30 +26,28 @@ The Openmind Robot Kindergarten is a kindergarten for robots. It is an ordinary 
 
 1. The kindergarten is progressively expansive: *crib, playpen, playground, schoolyard, and beyond into the wider world*.
 2. This expansiveness affords an *auto-curriculum*: a robot starting out in the crib where charging is automated could learn about its own body, learn to climb out of the crib, continue to learn in the playpen, and so on.
-3. *"Foot traffic" crosscuts the environment*: humans, robot caregivers (e.g. a mobile manipulator), and other "kindergarteners" could move across the whole environment in the course of their ordinary activities, affording highly variable interactions.
+3. *"Foot traffic" crosscuts the environment*: humans, robotic caregivers (e.g. a mobile manipulator), and other "robot kindergarteners" could move across the whole environment in the course of their ordinary activities, affording highly variable interactions.
 
 
 ### 5. Instrumentation and Automation are Consequential
 
-1. *Instrumentation is consequential for the kindergarteners*, insofar as the information flow leads to an experiencable change, even if through humans and robotic caretakers.
-2. *Automation, e.g. automated recovery, is consequential for the kindergarteners*, even if not the focus of the research.
-3. As passive remote monitoring, *telemetry is the norm*; as active remote control, *teleoperation is the exception*.
+1. *Instrumentation is consequential for the robot kindergarteners*, insofar as the information flow leads to an experienceable change, even if humans and robotic caretakers are involved.
+2. *Automation, e.g. automated recovery, is consequential for the robot kindergarteners*, even if not the focus of the research.
+3. In the kindergarten, *telemetry for passive remote monitoring is the norm*, but *teleoperation for active remote control is the exception.*
 
 
 ### 6. Simulation for Reality Augmentation rather than Reality Simplification
 
 1. The kindergarten is an *ordinary real-world environment that promotes continual learning* while remaining agnostic to specific solutions.
-2. Simulated versions and digital twins of the kindergartens are *for augmenting reality to promote understanding, not for approximating reality to simplify the problem*.
+2. Simulated versions and digital twins of the kindergartens are *for augmenting reality to facilitate discovery, not for approximating reality to simplify the problem*.
 
 
 ### 7. Open
 
-1. *Doors Open*: Keep the kindergarten open as part of ordinary, social life -- bring yourself, bring your friends, bring your own bots ("BYOB").
+1. *Doors Open*: Keep the kindergarten open as part of ordinary, social life -- bring yourself, bring your friends, bring your own bots.
 2. *Design Open*: Designs are extensible and composable, design specs are open -- bring your own design "mixins".
-3. *Source Open*: Infrastructure and instrumentation software are fully open sourced under a permissive licence -- bring your own code.
-
-[Check on "Dynamic Land"]
-
+3. *Source Open*: Infrastructure and instrumentation software is fully open sourced under a permissive licence -- bring your own code.
+* With a nod to [Dynamic Land](https://dynamicland.org/2024/Intro/).
 
 ### 8. Ready for Play
 
